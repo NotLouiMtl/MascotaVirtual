@@ -1,0 +1,11 @@
+*.class
+*.log
+*.jar
+build/
+dist/
+nbproject/
+.settings/
+.classpath
+.project
+*.iml
+.idea/
