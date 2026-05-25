@@ -14,7 +14,7 @@ public class MascotaVirtual {
 
     public static void main(String[] args) {
         System.out.println("=== MASCOTA VIRTUAL ACADÉMICA ===");
-        System.out.print("Ingresa tu nombre: ");
+        System.out.print("Ingresa el nombre de tu mascota: ");
         String nombre = sc.nextLine();
 
         System.out.println("Elige tu mascota:");
@@ -54,6 +54,7 @@ public class MascotaVirtual {
     private static void mostrarMenu() {
         limpiarPantalla();
         System.out.println(mascota.obtenerArteASCII());
+        System.out.println("  Exp: " + mascota.obtenerBarraExperiencia());
         System.out.println();
         linea();
         System.out.println("  MASCOTA VIRTUAL ACADEMICA");

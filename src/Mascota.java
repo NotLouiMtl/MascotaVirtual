@@ -28,6 +28,7 @@ public class Mascota {
     public int getExperiencia() { return experiencia; }
     public String getTipo() { return tipo; }
     public String getEstadoAnimo() { return estadoAnimo; }
+    public int getMaxExperiencia() { return maxExperiencia; }
 
     public void setNombre(String nombre) { this.nombre = nombre; }
     public void setTipo(String tipo) { this.tipo = tipo; }
@@ -103,6 +104,16 @@ public class Mascota {
         else estadoAnimo = "enojado";
     }
 
+    public String obtenerBarraExperiencia() {
+        int ancho = 10;
+        int llenos = (int) ((double) experiencia / maxExperiencia * ancho);
+        StringBuilder sb = new StringBuilder("[");
+        for (int i = 0; i < ancho; i++)
+            sb.append(i < llenos ? '█' : '░');
+        sb.append("] ").append(experiencia).append("/").append(maxExperiencia);
+        return sb.toString();
+    }
+
     public void mostrarEstadisticas() {
         System.out.println("=== " + nombre + " ===");
         System.out.println("Tipo: " + nombreTipo());
@@ -117,24 +128,24 @@ public class Mascota {
         String arte;
         switch (tipo) {
             case "gato":
-                arte = "  /\\_/\\\n ( " + ojo() + "." + ojo() + " )\n  > ^ <";
+                arte = "  /\\_/\\\n  (" + ojo() + "." + ojo() + ")\n  > ^ <";
                 break;
             case "perro":
-                arte = "   / \\__\n  ( " + ojo() + "." + ojo() + " )\\\n   / \\_/";
+                arte = "  / \\__\n  (" + ojo() + "." + ojo() + ")\n  \\___/";
                 break;
             case "buh":
-                arte = "  ,___,\n  (" + ojo() + " " + ojo() + ")\n  /)  (\\";
+                arte = "  ,___,\n  (" + ojo() + "." + ojo() + ")\n  /   \\";
                 break;
             case "conejo":
-                arte = "  (\\_/)\n  (" + ojo() + "." + ojo() + ")\n  ( >< )";
+                arte = "  /\\_/\\\n  (" + ojo() + "." + ojo() + ")\n  \\___/";
                 break;
             case "panda":
-                arte = "  .---.\n  (" + ojo() + "_" + ojo() + ")\n  / . . \\";
+                arte = "  .---.\n  (" + ojo() + "_" + ojo() + ")\n  \\___/";
                 break;
             default:
-                arte = "  /\\_/\\\n ( " + ojo() + "." + ojo() + " )\n  > ^ <";
+                arte = "  /\\_/\\\n  (" + ojo() + "." + ojo() + ")\n  > ^ <";
         }
-        return arte + "\n  ~ " + nombre + " ~\n  Ánimo: " + estadoAnimo;
+        return arte + "\n  ~ " + nombre + " ~\n  Animo: " + estadoAnimo;
     }
 
     private String ojo() {
